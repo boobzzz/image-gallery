@@ -2,9 +2,11 @@ import React from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 
 const Header = () => {
-    <View style={styles.header}>
-        <Text style={styles.headerText}>unsplash gallery</Text>
-    </View>
+    return (
+        <View style={styles.header}>
+            <Text style={styles.headerText}>unsplash gallery</Text>
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
@@ -16,7 +18,7 @@ const styles = StyleSheet.create({
     },
     headerText: {
         fontWeight: '700',
-        fontSize: 20,
+        fontSize: 22,
         textTransform: 'uppercase',
         color: '#ffffff'
     }

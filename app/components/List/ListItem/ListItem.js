@@ -1,22 +1,20 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { StyleSheet, View, Text, Image } from 'react-native'
 
 const ListItem = (props) => {
-    const image = useContext(ImageContext)
-
     return (
         <View>
             <Image
-                source={{uri: image.source}}
+                source={{uri: props.source}}
                 style={styles.smallImage} />
             <View style={styles.imageTextBox}>
                 <Text style={styles.imageText}>
-                    {image.description}
+                    {props.description}
                 </Text>
                 <Text style={styles.imageTextAuthor}>
-                    {image.firstName !== null ? image.firstName : ''}
+                    {props.firstName !== null ? props.firstName : ''}
                     {' '}
-                    {image.lastName !== null ? image.lastName : ''}
+                    {props.lastName !== null ? props.lastName : ''}
                 </Text>
             </View>
         </View>
@@ -31,14 +29,16 @@ const styles = StyleSheet.create({
         width: '100%',
         position: 'absolute',
         bottom: 0,
-        backgroundColor: 'rgba(52, 73, 94, 0.5)'
+        padding: 3,
+        backgroundColor: 'rgba(52, 73, 94, 0.7)'
     },
     imageText: {
         textTransform: 'uppercase',
+        fontSize: 15,
         color: '#ffffff'
     },
     imageTextAuthor: {
-        fontWeight: '700',
+        fontSize: 15,
         color: '#99FF00'
     }
 })
