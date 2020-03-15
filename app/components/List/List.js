@@ -1,19 +1,17 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { FlatList, View, TouchableHighlight } from 'react-native'
 
-import { ImageContext } from '../../context/ImageContext'
+import withContext from '../../hocs/withContext'
 import ListItem from './ListItem/ListItem'
 
-const List = ({ navigation }) => {
-    const images = useContext(ImageContext)
-
+const List = (props) => {
     return (
         <View>
             <FlatList
-                data={images.img}
+                data={props.images.img}
                 renderItem={({ item }) => (
                     <TouchableHighlight
-                        onPress={() => images.pressed(navigation, item.urls.regular)}
+                        onPress={() => props.images.pressed(props.navigation, item.urls.full)}
                         underlayColor="white">
                         <ListItem
                             key={item.id}
@@ -28,4 +26,4 @@ const List = ({ navigation }) => {
     )
 }
 
-export default List
+export default withContext(List)

@@ -1,25 +1,20 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { StyleSheet, View, Image } from 'react-native'
 
-import { ImageContext } from '../../context/ImageContext'
+import withContext from '../../hocs/withContext'
 
 const ImageItem = (props) => {
-    const images = useContext(ImageContext)
-
     return (
         <View>
-            <Image
-                style={styles.image}
-                source={{uri: images.uri}}
-            />
+            <Image style={styles.image} source={{uri: props.images.uri}} />
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     image: {
-        height: 502
+        height: '100%'
     }
 })
 
-export default ImageItem
+export default withContext(ImageItem)

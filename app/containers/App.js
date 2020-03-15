@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
+import { ImageContext } from '../context/ImageContext'
 import * as A from '../services/api.js'
 
-import { ImageContext } from '../context/ImageContext'
+import Spinner from '../assets/Spinner'
 import List from '../components/List/List'
 import Image from '../components/Image/Image'
 
@@ -16,50 +17,60 @@ const OPTIONS = {
 const Stack = createStackNavigator()
 
 export default function App() {
+    const [isLoading, setIsLoading] = useState(false)
     const [images, setImages] = useState([])
     const [url, setUrl] = useState('')
 
     useEffect(() => {
         const fetchData = async () => {
+            setIsLoading(true)
             const response = await A.fetchJSON(API_SOURCE, OPTIONS)
+            setIsLoading(false)
             setImages(response.body)
         }
-
         fetchData()
     }, [])
 
     const onPressItem = (nav, u) => {
         nav.navigate('Image')
-
         setUrl(u)
     }
-    console.log(url)
+
     return (
         <ImageContext.Provider value={{
             img: images,
             pressed: onPressItem,
             uri: url
         }}>
-            <NavigationContainer>
+            {isLoading
+            ? <Spinner />
+            : <NavigationContainer>
                 <Stack.Navigator initialRouteName="List">
-                    <Stack.Screen name="List" component={List} options={headerStyles} />
-                    <Stack.Screen name="Image" component={Image} options={{title: ''}} />
+                    <Stack.Screen
+                        name="List"
+                        component={List}
+                        options={headerOptions} />
+                    <Stack.Screen
+                        name="Image"
+                        component={Image}
+                        options={{...headerOptions, title: ''}} />
                 </Stack.Navigator>
-            </NavigationContainer>
+            </NavigationContainer>}
         </ImageContext.Provider>
     )
 }
 
-const headerStyles = {
+const headerOptions = {
     title: 'unsplash gallery',
     headerStyle: {
-        backgroundColor: '#34495E'
+        backgroundColor: '#34495e'
     },
-    headerTintColor: '#34495E',
+    headerTintColor: '#ffffff',
     headerTitleStyle: {
         fontWeight: 'bold',
         fontSize: 20,
         textTransform: 'uppercase',
         color: '#ffffff'
-    }
+    },
+    headerTitleAlign: 'center'
 }

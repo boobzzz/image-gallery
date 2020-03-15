@@ -30,15 +30,15 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 0,
         padding: 3,
-        backgroundColor: 'rgba(52, 73, 94, 0.7)'
+        backgroundColor: 'rgba(52, 73, 94, 0.5)'
     },
     imageText: {
         textTransform: 'uppercase',
-        fontSize: 15,
+        fontSize: 16,
         color: '#ffffff'
     },
     imageTextAuthor: {
-        fontSize: 15,
+        fontSize: 16,
         color: '#99FF00'
     }
 })

@@ -1,6 +1,6 @@
-import React from 'react'
+import { createContext } from 'react'
 
-export const ImageContext = React.createContext({
+export const ImageContext = createContext({
     images: [],
     pressed: () => {},
     uri: ''
