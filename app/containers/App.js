@@ -22,13 +22,13 @@ export default function App() {
     const [url, setUrl] = useState('')
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchData = async (u, o) => {
             setIsLoading(true)
-            const response = await A.fetchJSON(API_SOURCE, OPTIONS)
+            const response = await A.fetchJSON(u, o)
             setIsLoading(false)
             setImages(response.body)
         }
-        fetchData()
+        fetchData(API_SOURCE, OPTIONS)
     }, [])
 
     const onPressItem = (nav, u) => {
