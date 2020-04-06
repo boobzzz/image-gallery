@@ -1,5 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 # Unsplash gallery
 
 Two screens simple gallery with React Native
@@ -9,7 +7,7 @@ Two screens simple gallery with React Native
 Implement gallery with React-Native (not React.js), which would display photos
 from the Unsplash API (https://api.unsplash.com). Fetched data should be in JSON format.  
 
-The app should contain two screens(pages):  
+The app should contain two screens (pages):  
 #### Screen 1 - List of photos
 - small size pic with the name and the author
 - when user taps the list item, app switches to Screen 2, and a full sized pic is displayed
@@ -22,5 +20,4 @@ It would be preferable to initialize the app with React Native CLI by means of -
 
 * [React Native](https://reactnative.dev/)
 * [React Hooks API](https://reactjs.org/docs/hooks-reference.html)
-* [React Router](https://reacttraining.com/react-router/)
-* [Redux](https://redux.js.org/)
+* [React Navigation](https://reactnavigation.org/)
