@@ -1,17 +1,19 @@
 import React from 'react'
 import { FlatList, View, TouchableHighlight } from 'react-native'
 
-import withContext from '../../hocs/withContext'
+import withContext from '../../HOCs/withContext'
 import ListItem from './ListItem/ListItem'
 
 const List = (props) => {
+    const { img, pressed } = props.images
+
     return (
         <View>
             <FlatList
-                data={props.images.img}
+                data={img}
                 renderItem={({ item }) => (
                     <TouchableHighlight
-                        onPress={() => props.images.pressed(props.navigation, item.urls.full)}
+                        onPress={() => pressed(props.navigation, item.urls.full)}
                         underlayColor="white">
                         <ListItem
                             key={item.id}

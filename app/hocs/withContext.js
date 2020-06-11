@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { ImageContext } from '../context/ImageContext'
+import { ImageContext } from '../contexts/ImageContext'
 
 const withContext = (Component) => (props) => {
     const context = useContext(ImageContext)

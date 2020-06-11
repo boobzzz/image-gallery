@@ -1,7 +1,8 @@
 import React from 'react'
-import { StyleSheet, View, Image } from 'react-native'
+import { View, Image } from 'react-native'
 
-import withContext from '../../hocs/withContext'
+import withContext from '../../HOCs/withContext'
+import styles from './styles'
 
 const ImageItem = (props) => {
     return (
@@ -10,11 +11,5 @@ const ImageItem = (props) => {
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-    image: {
-        height: '100%'
-    }
-})
 
 export default withContext(ImageItem)

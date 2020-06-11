@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { ImageContext } from '../context/ImageContext'
+import { ImageContext } from '../contexts/ImageContext'
 import * as A from '../services/api.js'
 
-import Spinner from '../assets/Spinner'
-import List from '../components/List/List'
-import Image from '../components/Image/Image'
+import Spinner from '../UI/Spinner/Spinner'
+import List from './List/List'
+import Image from '../UI/Image/Image'
 
 const API_SOURCE = 'https://api.unsplash.com/photos'
 const OPTIONS = {
