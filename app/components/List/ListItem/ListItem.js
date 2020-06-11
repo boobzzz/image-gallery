@@ -1,46 +1,28 @@
 import React from 'react'
-import { StyleSheet, View, Text, Image } from 'react-native'
+import { View, Text, Image } from 'react-native'
+
+import styles from './styles'
 
 const ListItem = (props) => {
+    const { source, description, firstName, lastName } = props
+
     return (
         <View>
             <Image
-                source={{uri: props.source}}
+                source={{uri: source}}
                 style={styles.smallImage} />
             <View style={styles.imageTextBox}>
                 <Text style={styles.imageText}>
-                    {props.description}
+                    {description}
                 </Text>
                 <Text style={styles.imageTextAuthor}>
-                    {props.firstName !== null ? props.firstName : ''}
+                    {firstName !== null ? firstName : ''}
                     {' '}
-                    {props.lastName !== null ? props.lastName : ''}
+                    {lastName !== null ? lastName : ''}
                 </Text>
             </View>
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-    smallImage: {
-        height: 267
-    },
-    imageTextBox: {
-        width: '100%',
-        position: 'absolute',
-        bottom: 0,
-        padding: 3,
-        backgroundColor: 'rgba(52, 73, 94, 0.5)'
-    },
-    imageText: {
-        textTransform: 'uppercase',
-        fontSize: 16,
-        color: '#ffffff'
-    },
-    imageTextAuthor: {
-        fontSize: 16,
-        color: '#99FF00'
-    }
-})
 
 export default ListItem
